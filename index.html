@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-language="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mhappy Store Management System</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Role Selection -->
+    <div class="role-container" id="rolePage">
+        <div class="logo-container">
+            <img src="images/MhappyStoreLogo.png" alt="Mhappy Store Logo" class="logo">
+            <span class="logo-text">Mhappy Store</span>
+        </div>
+        <div class="role-box">
+            <h2 data-localize="select_role">Select Role</h2>
+            <form id="roleForm" onsubmit="event.preventDefault(); selectRole()">
+                <div class="form-group">
+                    <label data-localize="role">Role</label>
+                    <select id="roleSelect" required>
+                        <option value="">Select Role</option>
+                        <option value="admin">Admin</option>
+                        <option value="manager">Manager</option>
+                        <option value="employee">Employee</option>
+                    </select>
+                </div>
+                <button class="action-button success" data-localize="continue">Continue</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login System -->
+    <div class="login-container hidden" id="loginPage">
+        <div class="logo-container">
+            <img src="images/MhappyStoreLogo.png" alt="Mhappy Store Logo" class="logo">
+            <span class="logo-text">Mhappy Store</span>
+        </div>
+        <div class="login-box">
+            <h2 data-localize="welcome">Mhappy Store Management System</h2>
+            <form id="loginForm" onsubmit="event.preventDefault(); login()">
+                <div class="form-group">
+                    <label data-localize="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label data-localize="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div class="form-actions">
+                    <button class="action-button" onclick="goBackToRoleSelection()" data-localize="back">Back</button>
+                    <button class="action-button success" data-localize="login">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" class="hidden">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="logo-container">
+                <img src="images/MhappyStoreLogo.png" alt="Mhappy Store Logo" class="logo">
+                <span class="logo-text">Mhappy Store</span>
+            </div>
+            <div>
+                <span data-localize="logged_in_as">Logged in as: </span>
+                <span id="currentUser"></span>
+                <span id="currentRole" class="ml-1"></span>
+                <button class="action-button" onclick="showSettings()" data-localize="settings">⚙️ Settings</button>
+                <button class="action-button danger" onclick="logout()" data-localize="logout">Logout</button>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-menu">
+            <button class="nav-button" data-section="dashboard" data-localize="dashboard">Dashboard</button>
+            <button class="nav-button" data-section="employees" data-localize="employees">Employees</button>
+            <button class="nav-button" data-section="inventory" data-localize="inventory">Inventory</button>
+            <button class="nav-button" data-section="sales" data-localize="sales">Sales</button>
+            <button class="nav-button" data-section="customers" data-localize="customers">Customers</button>
+            <button class="nav-button" data-section="reports" data-localize="reports">Reports</button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="container">
+            <!-- Dashboard Overview -->
+            <section id="dashboard" class="section">
+                <!-- Dashboard content... -->
+            </section>
+
+            <!-- Employees Section -->
+            <section id="employees" class="section hidden">
+                <!-- Employees content... -->
+            </section>
+
+            <!-- Inventory Section -->
+            <section id="inventory" class="section hidden">
+                <!-- Inventory content... -->
+            </section>
+
+            <!-- Sales Section -->
+            <section id="sales" class="section hidden">
+                <!-- Sales content... -->
+            </section>
+
+            <!-- Customers Section -->
+            <section id="customers" class="section hidden">
+                <!-- Customers content... -->
+            </section>
+
+            <!-- Reports Section -->
+            <section id="reports" class="section hidden">
+                <!-- Reports content... -->
+            </section>
+        </main>
+
+        <!-- All modal dialogs... -->
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

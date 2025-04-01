@@ -1,0 +1,58 @@
+﻿/* Base Variables */
+:root {
+    --primary-color: #2f7366;
+    --secondary-color: #f3a157;
+    --accent-color: #0261d9;
+    --background-color: #f3ddb3;
+    --text-light: #ffffff;
+    --danger-color: #d87487;
+    --success-color: #4CAF50;
+}
+
+/* Layout Styles */
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    background-color: var(--background-color);
+    color: #333;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-right: auto;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+.logo-text {
+    font-weight: bold;
+    color: var(--text-light);
+    font-size: 1.2rem;
+}
+
+/* Components */
+.header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    justify-content: center;
+}
+
+/* Add all other CSS rules here */
