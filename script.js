@@ -1,3 +1,15 @@
+document.getElementById("roleForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevents page refresh
+    let role = document.getElementById("role").value;
+
+    if (role === "Select Role") {
+        alert("Please select a role!");
+        return;
+    }
+
+    // Redirect manually or submit using AJAX
+    this.submit();
+});
 // ======================
 // SYSTEM CONFIGURATION
 // ======================
