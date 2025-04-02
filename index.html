@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mhappy Store Management System</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Role Selection -->
@@ -13,7 +13,7 @@
             <h2 data-localize="select_role">Select Role</h2>
             <form id="roleForm">
                 <div class="form-group">
-                    <label for="roleSelect" data-localize="role">Role</label>
+                    <label data-localize="role">Role</label>
                     <select id="roleSelect" required>
                         <option value="">Select Role</option>
                         <option value="admin">Admin</option>
@@ -21,7 +21,7 @@
                         <option value="employee">Employee</option>
                     </select>
                 </div>
-                <button type="submit" class="action-button success" data-localize="continue">Continue</button>
+                <button class="action-button success" data-localize="continue">Continue</button>
             </form>
         </div>
     </div>
@@ -32,16 +32,16 @@
             <h2 data-localize="welcome">Mhappy Store Management System</h2>
             <form id="loginForm">
                 <div class="form-group">
-                    <label for="username" data-localize="username">Username</label>
+                    <label data-localize="username">Username</label>
                     <input type="text" id="username" required>
                 </div>
                 <div class="form-group">
-                    <label for="password" data-localize="password">Password</label>
+                    <label data-localize="password">Password</label>
                     <input type="password" id="password" required>
                 </div>
                 <div class="form-actions">
-                    <button type="button" class="action-button" data-localize="back">Back</button>
-                    <button type="submit" class="action-button success" data-localize="login">Login</button>
+                    <button class="action-button" data-localize="back">Back</button>
+                    <button class="action-button success" data-localize="login">Login</button>
                 </div>
             </form>
         </div>
@@ -78,19 +78,19 @@
                 <h2 data-localize="overview">Overview</h2>
                 <div class="dashboard-cards">
                     <div class="card">
-                        <div class="card-title" data-localize="total_employees">Total Employees</div>
+                        <div class="card-title">Total Employees</div>
                         <div class="card-value" id="totalEmployees">0</div>
                     </div>
                     <div class="card">
-                        <div class="card-title" data-localize="total_products">Total Products</div>
+                        <div class="card-title">Total Products</div>
                         <div class="card-value" id="totalProducts">0</div>
                     </div>
                     <div class="card">
-                        <div class="card-title" data-localize="total_sales">Total Sales</div>
+                        <div class="card-title">Total Sales</div>
                         <div class="card-value" id="totalSales">0</div>
                     </div>
                     <div class="card">
-                        <div class="card-title" data-localize="total_revenue">Total Revenue</div>
+                        <div class="card-title">Total Revenue</div>
                         <div class="card-value currency-display" data-currency="USD" id="totalRevenue">0.00</div>
                     </div>
                 </div>
@@ -674,6 +674,6 @@
         </div>
     </div>
 
-    <script src="scripts/main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

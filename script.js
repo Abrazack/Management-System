@@ -2184,37 +2184,27 @@ function restoreBackup() {
         'Restore Backup',
         'Are you sure you want to restore from backup? All current data will be replaced.',
         () => {
-            try {
-                const backupData = JSON.parse(localStorage.getItem('mhappyBackup'));
-                
-                if (!backupData) {
-                    showNotification('No backup found', true);
-                    return;
-                }
-
-                // Validate backup data structure
-                if (!backupData.employees || !backupData.inventory || !backupData.customers || !backupData.sales || !backupData.settings) {
-                    showNotification('Invalid backup data', true);
-                    return;
-                }
-                
-                SYSTEM_CONFIG.employees = Array.isArray(backupData.employees) ? backupData.employees : [];
-                SYSTEM_CONFIG.inventory = Array.isArray(backupData.inventory) ? backupData.inventory : [];
-                SYSTEM_CONFIG.customers = Array.isArray(backupData.customers) ? backupData.customers : [];
-                SYSTEM_CONFIG.sales = Array.isArray(backupData.sales) ? backupData.sales : [];
-                SYSTEM_CONFIG.settings = typeof backupData.settings === 'object' ? backupData.settings : SYSTEM_CONFIG.settings;
-                
-                // Refresh all views
-                loadDashboard();
-                loadEmployees();
-                loadInventory();
-                loadSales();
-                loadCustomers();
-                
-                showNotification('Backup restored successfully!');
-            } catch (error) {
-                showNotification('Error restoring backup: ' + error.message, true);
+            const backupData = JSON.parse(localStorage.getItem('mhappyBackup'));
+            
+            if (!backupData) {
+                showNotification('No backup found', true);
+                return;
             }
+            
+            SYSTEM_CONFIG.employees = backupData.employees || [];
+            SYSTEM_CONFIG.inventory = backupData.inventory || [];
+            SYSTEM_CONFIG.customers = backupData.customers || [];
+            SYSTEM_CONFIG.sales = backupData.sales || [];
+            SYSTEM_CONFIG.settings = backupData.settings || SYSTEM_CONFIG.settings;
+            
+            // Refresh all views
+            loadDashboard();
+            loadEmployees();
+            loadInventory();
+            loadSales();
+            loadCustomers();
+            
+            showNotification('Backup restored successfully!');
         }
     );
 }
