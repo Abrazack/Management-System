@@ -1,4 +1,92 @@
+// ======================
+// ROLE SELECTION
+// ======================
 document.getElementById("roleForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const roleSelect = document.getElementById('roleSelect');
+    SYSTEM_CONFIG.selectedRole = roleSelect.value;
+    
+    if (!SYSTEM_CONFIG.selectedRole) {
+        showNotification("Please select a role!", true);
+        return;
+    }
+    
+    document.getElementById('rolePage').classList.add('hidden');
+    document.getElementById('loginPage').classList.remove('hidden');
+});
+
+// ======================
+// LOGIN SYSTEM
+// ======================
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    login();
+});
+
+document.querySelector('#loginForm button[data-localize="back"]').addEventListener('click', function(event) {
+    event.preventDefault();
+    goBackToRoleSelection();
+});
+
+// ======================
+// MODAL HANDLING
+// ======================
+// Close modals when clicking the X button
+document.querySelectorAll('.close-modal').forEach(button => {
+    button.addEventListener('click', function() {
+        this.closest('.modal').style.display = 'none';
+    });
+});
+
+// Close modals when clicking outside
+window.addEventListener('click', function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+    }
+});
+
+// ======================
+// INITIALIZATION
+// ======================
+document.addEventListener('DOMContentLoaded', function() {
+    // Set up form submissions
+    document.getElementById('employeeForm').addEventListener('submit', saveEmployee);
+    document.getElementById('inventoryForm').addEventListener('submit', saveInventory);
+    document.getElementById('saleForm').addEventListener('submit', saveSale);
+    document.getElementById('customerForm').addEventListener('submit', saveCustomer);
+    document.getElementById('userForm').addEventListener('submit', saveUser);
+    
+    // Set up login and role selection
+    document.getElementById('roleForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        selectRole();
+    });
+    
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        login();
+    });
+    
+    document.querySelector('#loginForm button[data-localize="back"]').addEventListener('click', function(event) {
+        event.preventDefault();
+        goBackToRoleSelection();
+    });
+    
+    // Logout button
+    document.querySelector('.header button[data-localize="logout"]').addEventListener('click', logout);
+    
+    // Settings button
+    document.querySelector('.header button[data-localize="settings"]').addEventListener('click', showSettings);
+    
+    // Initialize with default language
+    updateLanguage(SYSTEM_CONFIG.settings.language);
+    
+    // Load any saved backup (for demo purposes)
+    if (localStorage.getItem('mhappyBackup')) {
+        const backupData = JSON.parse(localStorage.getItem('mhappyBackup'));
+        SYSTEM_CONFIG.settings.lastBackup = backupData.timestamp;
+    }
+});document.getElementById("roleForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevents page refresh
     let role = document.getElementById("role").value;
 
