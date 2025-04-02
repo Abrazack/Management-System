@@ -1,0 +1,20 @@
+﻿# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE files
+.idea/
+.vscode/
+*.swp
+
+# Ignore environment/config files
+/includes/config.php
+.env
+
+# Ignore backups and logs
+/Backups/
+*.log
+
+# Ignore dependencies
+/vendor/
+/node_modules/
